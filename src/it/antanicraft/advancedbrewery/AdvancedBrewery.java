@@ -12,13 +12,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.SidedProxy;
 
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.block.material.Material;
 
-import it.antanicraft.advancedbrewery.proxy.CommonProxy;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  *
@@ -29,25 +29,26 @@ public class AdvancedBrewery {
 
     @Instance("AdvancedBrewery")
     public static AdvancedBrewery instance;
-    
-    // Says where the client and server 'proxy' code is loaded.
-    @SidedProxy(clientSide = "it.antanicraft.advancedbrewery.proxy.ClientProxy", serverSide = "it.antanicraft.advancedbrewery.proxy.CommonProxy")
-    public static CommonProxy proxy;
+
+    private static Logger logger= Logger.getLogger("AdvancedBrewery");;
+
+    public static Block concentrator;
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
-        Logger logger = Logger.getLogger("AdvancedBrewery");
         logger.setParent(FMLLog.getLogger());
         logger.info("Hello World!");
     }
 
     @Init
     public void load(FMLInitializationEvent event) {
-
-        ItemStack dirtStack = new ItemStack(Block.cobblestone);
-        ItemStack diamondsStack = new ItemStack(Item.diamond, 64);
-
-        GameRegistry.addShapelessRecipe(diamondsStack, dirtStack);
+        logger.info("Registering Concentrator");
+        concentrator=new Concentrator(666, Material.iron);
+        concentrator.setUnlocalizedName("concentrator");
+        concentrator.setCreativeTab(CreativeTabs.tabBrewing);
+        LanguageRegistry.addName(concentrator,"Concentrator");
+        MinecraftForge.setBlockHarvestLevel(concentrator,"pickaxe",2);
+        GameRegistry.registerBlock(concentrator,"concentrator");
 
     }
     
