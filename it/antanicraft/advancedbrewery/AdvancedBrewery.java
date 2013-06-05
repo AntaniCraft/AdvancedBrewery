@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.antanicraft.advancedbrewery;
 
 import java.util.logging.Logger;
@@ -14,10 +10,11 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 /**
  *
- * @author admiral0
+ * @author admiral0, Andreabont
  */
 @Mod(name = "Advanced Brewery",version = "0.1",useMetadata = false,modid = "AdvancedBrewery",dependencies = "required-after:Forge@[7.7.2.682,)")
 public class AdvancedBrewery {
+    
     @Instance("AdvancedBrewery")
     public static AdvancedBrewery instance;
    
@@ -27,4 +24,5 @@ public class AdvancedBrewery {
         logger.setParent(FMLLog.getLogger());
         logger.info("Hello World!");
     }
+    
 }
