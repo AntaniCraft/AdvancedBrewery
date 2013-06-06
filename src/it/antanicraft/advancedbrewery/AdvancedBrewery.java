@@ -45,7 +45,7 @@ public class AdvancedBrewery {
     public void preInit(FMLPreInitializationEvent event) {
         logger = Logger.getLogger("AdvancedBrewery");
         logger.setParent(FMLLog.getLogger());
-        logger.info("May the Force be with you!" );
+        logger.info("May the Forge be with you!" );
     }
 
     @Init
