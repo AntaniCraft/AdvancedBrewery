@@ -63,6 +63,7 @@ public class AdvancedBrewery {
     private void setItems() {
         logger.info("Registering Suicide Pill");
         suicidepill = new SuicidePill(5000);
+        suicidepill.setCreativeTab(CreativeTabs.tabBrewing);
         LanguageRegistry.addName(suicidepill, "Suicide Pill");
     }
 
