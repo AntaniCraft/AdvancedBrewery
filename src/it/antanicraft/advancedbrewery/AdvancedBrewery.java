@@ -19,6 +19,8 @@ import net.minecraft.block.material.Material;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 /**
  *
@@ -35,19 +37,35 @@ public class AdvancedBrewery {
 
     @Instance("AdvancedBrewery")
     public static AdvancedBrewery instance;
-
-    private static Logger logger= Logger.getLogger("AdvancedBrewery");
-
+    private static Logger logger;
     public static Block concentrator;
+    public static Item suicidepill;
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
+        logger = Logger.getLogger("AdvancedBrewery");
         logger.setParent(FMLLog.getLogger());
-        logger.info("Hello World!" );
+        logger.info("May the Force be with you!" );
     }
 
     @Init
     public void load(FMLInitializationEvent event) {
+        setItems();
+        setBlocks();
+    }
+    
+    @PostInit
+    public void postInit(FMLPostInitializationEvent event) {
+        // Stub Method
+    }
+
+    private void setItems() {
+        logger.info("Registering Suicide Pill");
+        suicidepill = new SuicidePill(5000);
+        LanguageRegistry.addName(suicidepill, "Suicide Pill");
+    }
+
+    private void setBlocks() {
         logger.info("Registering Concentrator");
         concentrator=new Concentrator(666, Material.iron);
         concentrator.setUnlocalizedName("concentrator");
@@ -55,12 +73,6 @@ public class AdvancedBrewery {
         LanguageRegistry.addName(concentrator,"Concentrator");
         MinecraftForge.setBlockHarvestLevel(concentrator,"pickaxe",2);
         GameRegistry.registerBlock(concentrator,"concentrator");
-
-    }
-    
-    @PostInit
-    public void postInit(FMLPostInitializationEvent event) {
-        // Stub Method
     }
     
 }
