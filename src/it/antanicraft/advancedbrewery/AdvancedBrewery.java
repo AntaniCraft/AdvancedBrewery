@@ -54,6 +54,8 @@ public class AdvancedBrewery {
 
     public static Block concentrator;
     public static Item suicidepill;
+    public static RecipeItem obsidianshard,obsidianingot;
+
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
@@ -79,6 +81,11 @@ public class AdvancedBrewery {
         suicidepill = new SuicidePill(5000);
         suicidepill.setCreativeTab(CreativeTabs.tabBrewing);
         LanguageRegistry.addName(suicidepill, "Suicide Pill");
+
+        obsidianshard=new ObsidianShard(3990);
+        obsidianingot=new ObsidianIngot(3991);
+        LanguageRegistry.addName(obsidianshard, "Obsidian Shard");
+        LanguageRegistry.addName(obsidianingot, "Obsidian Ingot");
     }
 
     private void setBlocks() {
@@ -96,6 +103,17 @@ public class AdvancedBrewery {
         ItemStack dirtStack = new ItemStack(Block.dirt);
         ItemStack sPillStack = new ItemStack(suicidepill);
         GameRegistry.addShapelessRecipe(sPillStack, dirtStack);
+
+
+
+       ItemStack obshardStack=new ItemStack(obsidianshard);
+       ItemStack obingotStack= new ItemStack(obsidianingot);
+       GameRegistry.addShapedRecipe(obingotStack,"xxx","xxx"," y ", 'x',obshardStack,'y', new ItemStack(Item.bucketLava));
+
+
+
+
+
     }
     
 }
