@@ -24,20 +24,26 @@ import net.minecraftforge.common.MinecraftForge;
  *
  * @author admiral0, Andreabont
  */
-@Mod(name = "Advanced Brewery", version = "0.1", useMetadata = false, modid = "AdvancedBrewery", dependencies = "required-after:Forge@[7.7.2.682,)")
+@Mod(
+    name = "Advanced Brewery",
+    version = "0.1",
+    useMetadata = false,
+    modid = "AdvancedBrewery",
+    dependencies = "required-after:Forge@[7.7.2.682,)"
+)
 public class AdvancedBrewery {
 
     @Instance("AdvancedBrewery")
     public static AdvancedBrewery instance;
 
-    private static Logger logger= Logger.getLogger("AdvancedBrewery");;
+    private static Logger logger= Logger.getLogger("AdvancedBrewery");
 
     public static Block concentrator;
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
         logger.setParent(FMLLog.getLogger());
-        logger.info("Hello World!");
+        logger.info("Hello World!" );
     }
 
     @Init
