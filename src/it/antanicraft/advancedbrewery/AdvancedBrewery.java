@@ -8,9 +8,11 @@ import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -31,13 +33,25 @@ import net.minecraft.item.ItemStack;
     version = "0.1",
     useMetadata = false,
     modid = "AdvancedBrewery",
-    dependencies = "required-after:Forge@[7.7.2.682,)"
+    dependencies = "required-after:Forge@[7.7.2.684,)"
+)
+@NetworkMod(
+        clientSideRequired = true,
+        serverSideRequired = true
 )
 public class AdvancedBrewery {
 
     @Instance("AdvancedBrewery")
     public static AdvancedBrewery instance;
     private static Logger logger;
+
+
+    @SidedProxy(
+            clientSide = "it.antanicraft.advancedbrewery.client.ClientProxy",
+            serverSide = "it.antanicraft.advancedbrewery.CommonProxy"
+    )
+    public static CommonProxy proxy;
+
     public static Block concentrator;
     public static Item suicidepill;
 
@@ -72,9 +86,9 @@ public class AdvancedBrewery {
         concentrator=new Concentrator(666, Material.iron);
         concentrator.setUnlocalizedName("concentrator");
         concentrator.setCreativeTab(CreativeTabs.tabBrewing);
-        LanguageRegistry.addName(concentrator,"Concentrator");
+        LanguageRegistry.addName(concentrator, "Concentrator");
         MinecraftForge.setBlockHarvestLevel(concentrator,"pickaxe",2);
-        GameRegistry.registerBlock(concentrator,"concentrator");
+        GameRegistry.registerBlock(concentrator, "concentrator");
     }
 
     private void setCraftingRecipes() {

@@ -1,0 +1,19 @@
+[
+{
+  "modid": "AdvancedBrewery",
+  "name": "Advanced Brewery",
+  "description": "Making brewery interesting again.",
+  "version": "",
+  "credits": "Created by Antanicraft team",
+  "logoFile": "/gfx/logo.png",
+  "mcversion": "1.5.2",
+  "url": "http://github.com/Antanicraft",
+  "updateUrl": "",
+  "authors": [ "admiral0", "Andreabont" ],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": [
+         "Forge"
+]
+}
+]
