@@ -20,6 +20,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemArmor;
+import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -54,7 +57,13 @@ public class AdvancedBrewery {
 
     public static Block concentrator;
     public static Item suicidepill;
+
     public static RecipeItem obsidianshard,obsidianingot;
+    public static EnumArmorMaterial OBSIDIANARMOR;
+    public static Item obsidianHelmet;
+    public static Item obsidianChestplate;
+    public static Item obsidianLeggings;
+    public static Item obsidianBoots;
 
 
     @PreInit
@@ -86,6 +95,18 @@ public class AdvancedBrewery {
         obsidianingot=new ObsidianIngot(3991);
         LanguageRegistry.addName(obsidianshard, "Obsidian Shard");
         LanguageRegistry.addName(obsidianingot, "Obsidian Ingot");
+
+
+        OBSIDIANARMOR = EnumHelper.addArmorMaterial("OBSIDIAN", 45, new int[]{12,20 ,17, 12}, 10);
+        obsidianHelmet = new ItemArmor(1195, OBSIDIANARMOR,3,0).setUnlocalizedName("helmetObsidian");
+        obsidianChestplate = new ItemArmor(1196, OBSIDIANARMOR,3,1).setUnlocalizedName("chestObsidian");
+        obsidianLeggings = new ItemArmor(1197, OBSIDIANARMOR,3,2).setUnlocalizedName("legginssObsidian");
+        obsidianBoots = new ItemArmor(1198, OBSIDIANARMOR,3,3).setUnlocalizedName("bootsObsidian");
+        LanguageRegistry.addName(obsidianHelmet, "Obsidian Helmet");
+        LanguageRegistry.addName(obsidianChestplate, "Obsidian Chestplate");
+        LanguageRegistry.addName(obsidianLeggings, "Obsidian Leggins");
+        LanguageRegistry.addName(obsidianBoots, "Obsidian Boots");
+
     }
 
     private void setBlocks() {
