@@ -52,6 +52,7 @@ public class AdvancedBrewery {
     public void load(FMLInitializationEvent event) {
         setItems();
         setBlocks();
+        setCraftingRecipes();
     }
     
     @PostInit
@@ -73,6 +74,13 @@ public class AdvancedBrewery {
         LanguageRegistry.addName(concentrator,"Concentrator");
         MinecraftForge.setBlockHarvestLevel(concentrator,"pickaxe",2);
         GameRegistry.registerBlock(concentrator,"concentrator");
+    }
+
+    private void setCraftingRecipes() {
+        // TEST
+        ItemStack dirtStack = new ItemStack(Block.dirt);
+        ItemStack sPillStack = new ItemStack(suicidepill);
+        GameRegistry.addShapelessRecipe(sPillStack, dirtStack);
     }
     
 }
