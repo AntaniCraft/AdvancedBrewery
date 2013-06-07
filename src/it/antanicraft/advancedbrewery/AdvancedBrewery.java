@@ -56,10 +56,9 @@ public class AdvancedBrewery {
     public static CommonProxy proxy;
 
     public static Block concentrator;
-    public static Item excipient;
     public static Item suicidepill;
 
-    public static RecipeItem obsidianshard,obsidianingot;
+    public static RecipeItem obsidianshard, obsidianingot, excipient;
     public static EnumArmorMaterial OBSIDIANARMOR;
     public static Item obsidianHelmet;
     public static Item obsidianChestplate;
@@ -89,11 +88,11 @@ public class AdvancedBrewery {
     private void setItems() {
 
         logger.info("Registering Excipient");
-        excipient = new Excipient(5000);
+        excipient = new Excipient(4000);
         LanguageRegistry.addName(excipient, "Excipient");
 
         logger.info("Registering Suicide Pill");
-        suicidepill = new SuicidePill(5001);
+        suicidepill = new SuicidePill(4001);
         LanguageRegistry.addName(suicidepill, "Suicide Pill");
 
         logger.info("Registering Obsidian Shard");

@@ -11,10 +11,10 @@ import net.minecraft.item.Item;
  * To change this template use File | Settings | File Templates.
  */
 
-public class Excipient extends Item {
+public class Excipient extends RecipeItem {
 
     public Excipient(int id) {
-        super(id);
+        super(id, "Excipient");
 
         // Constructor Configuration
         maxStackSize = 64;
@@ -23,7 +23,7 @@ public class Excipient extends Item {
 
     public Excipient(int id, int maxStackSize, CreativeTabs tab,
                      int texture, String name) {
-        super(id);
+        super(id, "Excipient");
         setMaxStackSize(maxStackSize);
         setCreativeTab(tab);
     }
