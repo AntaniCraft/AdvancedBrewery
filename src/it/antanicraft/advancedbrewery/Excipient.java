@@ -11,9 +11,9 @@ import net.minecraft.item.Item;
  * To change this template use File | Settings | File Templates.
  */
 
-public class SuicidePill extends Item {
+public class Excipient extends Item {
 
-    public SuicidePill (int id) {
+    public Excipient(int id) {
         super(id);
 
         // Constructor Configuration
@@ -21,8 +21,8 @@ public class SuicidePill extends Item {
         setCreativeTab(CreativeTabs.tabBrewing);
     }
 
-    public SuicidePill (int id, int maxStackSize, CreativeTabs tab,
-                        int texture, String name) {
+    public Excipient(int id, int maxStackSize, CreativeTabs tab,
+                     int texture, String name) {
         super(id);
         setMaxStackSize(maxStackSize);
         setCreativeTab(tab);

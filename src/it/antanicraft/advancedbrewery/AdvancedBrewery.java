@@ -56,6 +56,7 @@ public class AdvancedBrewery {
     public static CommonProxy proxy;
 
     public static Block concentrator;
+    public static Item excipient;
     public static Item suicidepill;
 
     public static RecipeItem obsidianshard,obsidianingot;
@@ -86,14 +87,23 @@ public class AdvancedBrewery {
     }
 
     private void setItems() {
+
+        logger.info("Registering Excipient");
+        excipient = new Excipient(5000);
+        LanguageRegistry.addName(excipient, "Excipient");
+
         logger.info("Registering Suicide Pill");
-        suicidepill = new SuicidePill(5000);
-        suicidepill.setCreativeTab(CreativeTabs.tabBrewing);
+        suicidepill = new SuicidePill(5001);
         LanguageRegistry.addName(suicidepill, "Suicide Pill");
 
-        obsidianshard=new ObsidianShard(3990);
-        obsidianingot=new ObsidianIngot(3991);
+        logger.info("Registering Obsidian Shard");
+        obsidianshard = new ObsidianShard(3990);
+        obsidianshard.setCreativeTab(CreativeTabs.tabMaterials);
         LanguageRegistry.addName(obsidianshard, "Obsidian Shard");
+
+        logger.info("Registering Obsidian Ingot");
+        obsidianingot = new ObsidianIngot(3991);
+        obsidianingot.setCreativeTab(CreativeTabs.tabMaterials);
         LanguageRegistry.addName(obsidianingot, "Obsidian Ingot");
 
 
@@ -120,20 +130,16 @@ public class AdvancedBrewery {
     }
 
     private void setCraftingRecipes() {
-        // TEST
-        ItemStack dirtStack = new ItemStack(Block.dirt);
-        ItemStack sPillStack = new ItemStack(suicidepill);
-        GameRegistry.addShapelessRecipe(sPillStack, dirtStack);
 
+        logger.info("Registering Excipient recipe");
+        ItemStack excipientStack = new ItemStack(excipient);
+        ItemStack sugarStack = new ItemStack(Item.sugar);
+        GameRegistry.addShapedRecipe(excipientStack, "   ","xxx","   ", 'x', sugarStack);
 
-
-       ItemStack obshardStack=new ItemStack(obsidianshard);
-       ItemStack obingotStack= new ItemStack(obsidianingot);
-       GameRegistry.addShapedRecipe(obingotStack,"xxx","xxx"," y ", 'x',obshardStack,'y', new ItemStack(Item.bucketLava));
-
-
-
-
+        logger.info("Registering Obsidian Ingot recipe");
+        ItemStack obshardStack=new ItemStack(obsidianshard);
+        ItemStack obingotStack= new ItemStack(obsidianingot);
+        GameRegistry.addShapedRecipe(obingotStack,"xxx","xxx"," y ", 'x',obshardStack,'y', new ItemStack(Item.bucketLava));
 
     }
     
