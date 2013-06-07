@@ -1,5 +1,6 @@
 package it.antanicraft.advancedbrewery;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -27,4 +28,10 @@ public class Excipient extends RecipeItem {
         setMaxStackSize(maxStackSize);
         setCreativeTab(tab);
     }
+
+    public void registerIcons(IconRegister iconRegister)
+    {
+        itemIcon = iconRegister.registerIcon("AdvancedBrewery:Excipient");
+    }
+
 }

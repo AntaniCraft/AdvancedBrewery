@@ -8,7 +8,4 @@ public class Concentrator extends Block {
         super(itemId, material);
     }
 
-    public String getTextureFile () {
-        return CommonProxy.BLOCK_PNG;
-    }
 }

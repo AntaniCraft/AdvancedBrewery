@@ -2,7 +2,6 @@ package it.antanicraft.advancedbrewery;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemAppleGold;
 
 /**
  * Created with IntelliJ IDEA.
